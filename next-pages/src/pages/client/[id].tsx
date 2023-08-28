@@ -24,10 +24,7 @@ export default function PostDetail() {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-10">
-      <button
-        className="px-2 rounded text-white bg-blue-500"
-        onClick={() => router.back()}
-      >
+      <button className="underline" onClick={() => router.back()}>
         Go Back
       </button>
       <h1 className="text-lg">{data?.title}</h1>

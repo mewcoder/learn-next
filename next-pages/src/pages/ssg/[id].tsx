@@ -9,11 +9,12 @@ interface IPost {
 
 export async function getStaticPaths() {
   // 获取所有可能的 id
-  const resp = await fetch("https://dummyjson.com/posts");
-  const data = await resp.json();
-  const paths = (data.posts as IPost[]).map((item) => ({
-    params: { id: item.id.toString() },
-  }));
+  // const resp = await fetch("https://dummyjson.com/posts");
+  // const data = await resp.json();
+  // const paths = (data.posts as IPost[]).map((item) => ({
+  //   params: { id: item.id.toString() },
+  // }));
+  const paths = [{ params: { id: "1" } }];
 
   return {
     paths,
@@ -37,13 +38,10 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 
 export default function PostDetail(props: { post: IPost; time: string }) {
   const router = useRouter();
-  
+
   return (
     <main className="flex min-h-screen flex-col items-center pt-10">
-      <button
-        className="px-2 rounded text-white bg-blue-500"
-        onClick={() => router.back()}
-      >
+      <button className="underline" onClick={() => router.back()}>
         Go Back
       </button>
       <h1 className="text-lg">
