@@ -1,15 +1,29 @@
 'use client';
 
-import { Card, Button, Form, Input } from 'antd';
+import { Card, Button, Form, Input, message } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
 export default function Todos() {
-  const onFinish = (values: any) => {
-    alert(JSON.stringify(values));
-  };
+  const [messageApi, contextHolder] = message.useMessage();
+  async function onFinish(val: any) {
+    fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify(val)
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data.code === '0') {
+          messageApi.success('登录成功!');
+        }
+      })
+      .catch(() => {
+        messageApi.error('登录失败!');
+      });
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      {contextHolder}
       <Card title="登录" bordered={false} style={{ width: 500 }}>
         <Form onFinish={onFinish}>
           <Form.Item
