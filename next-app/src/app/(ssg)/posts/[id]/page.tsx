@@ -5,6 +5,7 @@ import Link from 'next/link';
 // fallback 属性就可以控制没有预渲染的页面应该展示回退加载中页面、404页面还是在请求时动态生成页面
 export const dynamicParams = true;
 
+// ssg
 export async function generateStaticParams() {
   // 获取所有可能的 id
   // const resp = await fetch("https://jsonplaceholder.typicode.com/posts");

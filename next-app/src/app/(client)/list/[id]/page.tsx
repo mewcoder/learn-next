@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 
-export default function Detail({ params }: { params: { id: string } }) {
+export default function Detail() {
   const [data, setData] = useState<IPostData>();
-
+  const params = useParams();
   const { id } = params;
 
   useEffect(() => {
