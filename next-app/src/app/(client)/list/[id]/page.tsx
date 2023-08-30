@@ -2,14 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 
-interface DataItem {
-  id: React.Key;
-  title: string;
-  body: string;
-  userId: number;
-}
 export default function Detail({ params }: { params: { id: string } }) {
-  const [data, setData] = useState<DataItem>();
+  const [data, setData] = useState<IPostData>();
 
   const { id } = params;
 

@@ -2,8 +2,7 @@ import StyledComponentsRegistry from '@/lib/AntdRegistry';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Admin',
-  description: ''
+  title: 'Client'
 };
 
 export default function RootLayout({

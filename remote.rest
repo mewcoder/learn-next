@@ -1,7 +1,7 @@
 
 
-# @remote=https://jsonplaceholder.typicode.com
-@remote=https://dummyjson.com
+@remote=https://jsonplaceholder.typicode.com
+# @remote=https://dummyjson.com
 
 ###
 GET {{remote}}/posts

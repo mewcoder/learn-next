@@ -4,15 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { Button, Space, Table } from 'antd';
 import { useRouter } from 'next/navigation';
 const { Column } = Table;
-interface DataItem {
-  id:string;
-  title: string;
-  body: string;
-  userId: number;
-}
 
 export default function List() {
-  const [dataList, setDataList] = useState<DataItem[]>([]);
+  const [dataList, setDataList] = useState<IPostData[]>([]);
 
   const router = useRouter();
 
@@ -32,7 +26,12 @@ export default function List() {
 
   return (
     <div className="p-12">
-      <Table dataSource={dataList} scroll={{ y: 400 }}  rowKey="id" className="w-[1000px]">
+      <Table
+        dataSource={dataList}
+        scroll={{ y: 400 }}
+        rowKey="id"
+        className="w-[1000px]"
+      >
         <Column title="ID" dataIndex="id" key="id" width={100} />
         <Column
           title="标题"
@@ -46,7 +45,7 @@ export default function List() {
         <Column
           title="操作"
           key="action"
-          render={(_: unknown, record: DataItem) => (
+          render={(_: unknown, record: IPostData) => (
             <Space size="small">
               <Button type="link" onClick={() => toDetail(record.id)}>
                 详情
