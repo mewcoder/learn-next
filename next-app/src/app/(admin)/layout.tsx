@@ -1,16 +1,21 @@
-import StyledComponentsRegistry from "@/lib/AntdRegistry";
+import StyledComponentsRegistry from '@/lib/AntdRegistry';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Admin',
-  description: '',
-}
-
+  description: ''
+};
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
-  return <StyledComponentsRegistry>{children}</StyledComponentsRegistry>;
+  return (
+    <StyledComponentsRegistry>
+      <main className="min-h-screen flex items-center justify-center bg-gray-100">
+        {children}
+      </main>
+    </StyledComponentsRegistry>
+  );
 }
